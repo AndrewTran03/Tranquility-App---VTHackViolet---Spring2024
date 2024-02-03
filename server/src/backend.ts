@@ -29,27 +29,27 @@ app.use((_, res, next: NextFunction) => {
 const frontendClientUrl = config.get<string>("frontendClientUrl");
 
 // Socket.io Setup (Server):
-const server = http.createServer(app);
-const ioSocket = new Server(server, {
-  cors: {
-    origin: [frontendClientUrl],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"]
-  }
-});
+// const server = http.createServer(app);
+// const ioSocket = new Server(server, {
+//   cors: {
+//     origin: [frontendClientUrl],
+//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"]
+//   }
+// });
 
 // Tracks incoming connections to SocketIO server connection
-ioSocket.on("connection", (socket) => {
-  log.debug(`User sucessfully connected to Socket.io!\nSERVER-SIDE #ID: ${socket.id}`);
+// ioSocket.on("connection", (socket) => {
+//   log.debug(`User sucessfully connected to Socket.io!\nSERVER-SIDE #ID: ${socket.id}`);
 
-  socket.conn.on("close", (reason) => {
-    log.debug(`A user disconnected. REASON: ${reason}`);
-  });
-});
+//   socket.conn.on("close", (reason) => {
+//     log.debug(`A user disconnected. REASON: ${reason}`);
+//   });
+// });
 
 const backendServerPort = config.get<number>("backendServerPort");
 const backendServerUrl = config.get<string>("backendServerUrl");
 
-server.listen(backendServerPort, async () => {
+app.listen(backendServerPort, async () => {
   log.debug(`App started on ${backendServerUrl}`);
   await ensureConnectionToMongoDatabase();
 });
