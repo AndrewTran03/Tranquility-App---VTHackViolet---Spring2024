@@ -10,7 +10,8 @@ const processEnvSchema = z
     USERNAME: z.string().min(1),
     PASSWORD: z.string().min(1),
     DEPLOYMENT_NAME: z.string().min(1),
-    MONGO_DB_NAME: z.string().min(1)
+    MONGO_DB_NAME: z.string().min(1),
+    JOURNAL_ENTRIES_COLLECTION_NAME: z.string().min(1)
   })
   .strict();
 

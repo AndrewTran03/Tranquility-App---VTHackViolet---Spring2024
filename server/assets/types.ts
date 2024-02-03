@@ -10,4 +10,14 @@ type APIErrorResponse = {
   errorMsg: string;
 };
 
-export { APIErrorResponse };
+type JournalWrittenEntriesGroup = {
+  username: string;
+  journalEntries: JournalWrittenSingleEntry[];
+};
+
+type JournalWrittenSingleEntry = {
+  journalEntryTitle: string;
+  journalEntryText: string;
+};
+
+export { APIErrorResponse, JournalWrittenEntriesGroup, JournalWrittenSingleEntry };

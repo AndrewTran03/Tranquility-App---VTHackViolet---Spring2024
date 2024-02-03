@@ -37,7 +37,7 @@ const frontendClientUrl = config.get<string>("frontendClientUrl");
 //   }
 // });
 
-// Tracks incoming connections to SocketIO server connection
+// // Tracks incoming connections to SocketIO server connection
 // ioSocket.on("connection", (socket) => {
 //   log.debug(`User sucessfully connected to Socket.io!\nSERVER-SIDE #ID: ${socket.id}`);
 
@@ -48,7 +48,6 @@ const frontendClientUrl = config.get<string>("frontendClientUrl");
 
 const backendServerPort = config.get<number>("backendServerPort");
 const backendServerUrl = config.get<string>("backendServerUrl");
-
 app.listen(backendServerPort, async () => {
   log.debug(`App started on ${backendServerUrl}`);
   await ensureConnectionToMongoDatabase();
