@@ -29,4 +29,25 @@ type APIErrorResponse = {
   errorMsg: string;
 };
 
-export { backendUrlBase, MongoDBWithId, MongoDBCombined, APIErrorResponse };
+type JournalWrittenEntriesGroupBase = {
+  username: string;
+  journalEntries: JournalWrittenSingleEntry[];
+};
+
+type JournalWrittenEntriesGroup = MongoDBCombined<JournalWrittenEntriesGroupBase>;
+
+type JournalWrittenSingleEntryBase = {
+  journalEntryTitle: string;
+  journalEntryText: string;
+};
+
+type JournalWrittenSingleEntry = MongoDBWithId<JournalWrittenSingleEntryBase>;
+
+export {
+  backendUrlBase,
+  APIErrorResponse,
+  JournalWrittenSingleEntry,
+  JournalWrittenSingleEntryBase,
+  JournalWrittenEntriesGroup,
+  JournalWrittenEntriesGroupBase
+};
