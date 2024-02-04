@@ -4,6 +4,7 @@ import Login from "./components/Login.tsx";
 import Welcome from "./components/Welcome.tsx";
 import PrevJournal from "./components/PrevJournal.tsx";
 import Breathing from "./components/Breathing.tsx";
+import Journal from "./components/Journal.tsx";
 
 const AppRouter: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter: React.FC = () => {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/prev_journal" element={<PrevJournal />}></Route>
           <Route path="/breathing" element={<Breathing />} />
+          <Route path="/journal" element={<Journal />} />
         </Routes>
       </Router>
     </>
