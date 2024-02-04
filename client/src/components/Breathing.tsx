@@ -29,26 +29,41 @@ const Breathing: React.FC = () => {
   }, [timer, loopCount]);
 
   return (
-  <>
-    <CardMedia
-      component="img"
-      style={{ width: "50%", margin: "auto", border: "30px solid black", marginLeft: "50px" }}
-      image={WhaleImage}
-      alt="whale tranquility image"
-    />
-    <div style={{ position: "fixed", top: "50%", right: "140px", transform: "translateY(-50%)" }}>
-      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px", marginBottom: "10px" }}>
-        <p>Breathe to soothe yourself, {username}!</p>
+    <>
+      <CardMedia
+        component="img"
+        style={{ width: "50%", margin: "auto", border: "30px solid black", marginLeft: "50px" }}
+        image={WhaleImage}
+        alt="whale tranquility image"
+      />
+      <div style={{ position: "fixed", top: "50%", right: "140px", transform: "translateY(-50%)" }}>
+        <div
+          style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+            borderRadius: "5px",
+            width: "200px",
+            marginBottom: "10px"
+          }}
+        >
+          <p>Breathe to soothe yourself, {username}!</p>
+        </div>
+        <div
+          style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+            borderRadius: "5px",
+            width: "200px",
+            marginBottom: "10px"
+          }}
+        >
+          <p>Time remaining: {timer} seconds</p>
+        </div>
+        <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px" }}>
+          <p>{breathMessage}</p>
+        </div>
       </div>
-      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px", marginBottom: "10px" }}>
-        <p>Time remaining: {timer} seconds</p>
-      </div>
-      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px" }}>
-        <p>{breathMessage}</p>
-      </div>
-    </div>
-  </>
-    
+    </>
   );
 };
 

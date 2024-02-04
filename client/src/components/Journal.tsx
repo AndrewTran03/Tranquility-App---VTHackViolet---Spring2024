@@ -33,54 +33,54 @@ const Journal: React.FC = () => {
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        height: "100vh", 
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
-      <h1 style={{ color: '#333', marginTop: '-10px'}}>My Journal</h1>
-      <p style={{ color: '#333', fontSize: '2em', textAlign: 'center', marginTop: '-25px' }}>
+      <h1 style={{ color: "#333", marginTop: "-10px" }}>My Journal</h1>
+      <p style={{ color: "#333", fontSize: "2em", textAlign: "center", marginTop: "-25px" }}>
         Current Date: {currentDate.toLocaleDateString()}
       </p>
-      
+
       <textarea
-      value={inputTitleText}
-      onChange={handleInputTitleChange}
-      placeholder={'Add title here'}
-      style={{
-          width: '1200px',
-          height: '50',
-          background: 'rgba(255, 192, 203, 0.01)',
-          border: '0px solid #ccc',
-          padding: '10px',
-          color: '#333',
-          fontFamily: 'Helvetica, sans-serif',
-          fontSize: '2em',
+        value={inputTitleText}
+        onChange={handleInputTitleChange}
+        placeholder={"Add title here"}
+        style={{
+          width: "1200px",
+          height: "50",
+          background: "rgba(255, 192, 203, 0.01)",
+          border: "0px solid #ccc",
+          padding: "10px",
+          color: "#333",
+          fontFamily: "Helvetica, sans-serif",
+          fontSize: "2em"
         }}
       />
 
       <textarea
         value={inputBodyText}
         onChange={handleInputBodyChange}
-        placeholder={'Add text here'}
+        placeholder={"Add text here"}
         style={{
-          width: '1200px',
-          height: '450px',
-          background: 'rgba(255, 192, 203, 0.01)',
-          border: '0px solid #ccc',
-          padding: '10px',
-          color: '#333',
-          fontFamily: 'Helvetica, sans-serif',
-          fontSize: '2em',
+          width: "1200px",
+          height: "450px",
+          background: "rgba(255, 192, 203, 0.01)",
+          border: "0px solid #ccc",
+          padding: "10px",
+          color: "#333",
+          fontFamily: "Helvetica, sans-serif",
+          fontSize: "2em"
         }}
       />
 
       <button
         onClick={handleNavigateToWelcome}
-        style={{ padding: '6px', marginTop: "10px", marginBottom: '20px', border: '0 px solid #ccc', fontSize: "20px" }}
-        >
+        style={{ padding: "6px", marginTop: "10px", marginBottom: "20px", border: "0 px solid #ccc", fontSize: "20px" }}
+      >
         Go Back
       </button>
     </div>
