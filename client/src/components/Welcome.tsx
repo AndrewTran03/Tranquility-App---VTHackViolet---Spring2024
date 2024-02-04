@@ -18,9 +18,10 @@ const Welcome: React.FC = () => {
 
   return (
     <>
-      <p>Welcome To Tranquility, {username}</p>
-      <div style={{ height: "400px", display: "flex", flexDirection: "column", alignItems: "stretch" }}>
-        <Grid container spacing={2} style={{ alignItems: "stretch" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", marginTop: "0px" }}>
+        <Audio />
+        <p>Welcome To Tranquility, {username}</p>
+        <Grid container spacing={2} style={{ alignItems: "center", justifyContent: "center", marginTop: "0px" }}>
           <Grid item xs={4} alignSelf="center" style={{ alignItems: "stretch" }}>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea onClick={() => handleNavigation("/breathing")}>
@@ -81,7 +82,6 @@ const Welcome: React.FC = () => {
           </Grid>
         </Grid>
       </div>
-      <Audio />
     </>
   );
 };
