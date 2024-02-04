@@ -7,7 +7,7 @@ import { parsePreviousJournalEntries } from "../FrontendParser";
 import UsernameContext from "../shared/UsernameContext";
 
 const PrevJournal: React.FC = () => {
-  const { username, setUsername } = useContext(UsernameContext);
+  const { username } = useContext(UsernameContext);
   const [prevJournalEntriesArr, setPrevJournalEntriesArr] = useState<JournalWrittenEntriesGroup[]>([]);
 
   async function fetchPreviousJournalEntries() {
