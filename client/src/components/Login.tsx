@@ -2,7 +2,6 @@ import { useEffect, useRef, FormEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UsernameContext from "../shared/UsernameContext";
 
-
 const Login: React.FC = () => {
   const { username, setUsername } = useContext(UsernameContext);
   const usernameRef = useRef<HTMLInputElement | null>(null);

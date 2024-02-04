@@ -9,17 +9,16 @@ const Welcome: React.FC = () => {
   function handleEnterBreathing(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     console.log("Button pressed");
-    navigate("/breathing", { state: {username: username }} );
+    navigate("/breathing", { state: { username: username } });
   }
 
   return (
-      <> 
-          <p>Welcome To Tranquility,</p> {username}
-          <button type="submit" onClick={handleEnterBreathing}>
-              Go To Breathing
-          </button>
-  
-      </>
+    <>
+      <p>Welcome To Tranquility,</p> {username}
+      <button type="submit" onClick={handleEnterBreathing}>
+        Go To Breathing
+      </button>
+    </>
   );
 };
 

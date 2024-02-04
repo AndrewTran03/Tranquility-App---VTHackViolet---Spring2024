@@ -6,8 +6,7 @@ const Breathing: React.FC = () => {
   const [timer, setTimer] = useState(10);
   const [loopCount, setLoopCount] = useState(0);
 
-  const breathMessage =
-    loopCount % 3 === 1 ? 'Breathe in' : loopCount % 3 === 0 ? 'Breathe out' : 'Hold your breath';
+  const breathMessage = loopCount % 3 === 1 ? "Breathe in" : loopCount % 3 === 0 ? "Breathe out" : "Hold your breath";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,9 +20,8 @@ const Breathing: React.FC = () => {
 
     if (loopCount === 18) {
       console.log("Breathing exercise completed 18 times.");
-      clearInterval(interval); 
+      clearInterval(interval);
     }
-
 
     return () => clearInterval(interval);
   }, [timer, loopCount]);
