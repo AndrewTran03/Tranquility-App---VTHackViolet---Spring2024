@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
+import { useState, useRef } from "react";
 import { HiForward, HiBackward, HiPause, HiPlay } from "react-icons/hi2";
 import GentleBreeze from "/src/assets/audio/agentlebreeze.mp3";
 import DreamingSeas from "/src/assets/audio/dreamingseas.mp3";
