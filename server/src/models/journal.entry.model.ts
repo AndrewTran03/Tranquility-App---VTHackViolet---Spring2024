@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import config from "config";
 import { JournalWrittenSingleEntry, JournalWrittenEntriesGroup } from "../../assets/types";
 
-const mongoDBName = config.get<string>("mongoDBName");
+const mongoDBName = config.get<string>("mongoDatabaseName");
 const journalEntriesCollectionName = config.get<string>("journalEntriesCollectionName");
 
 // Reference: https://mongoosejs.com/docs/api/schemastring.html
