@@ -15,11 +15,7 @@ const PrevJournal: React.FC = () => {
     await axios
       .get(`${backendUrlBase}/api/journal_entry/${username}`)
       .then((res) => {
-        console.log("BEFORE PARSE: ");
-        console.log(res.data);
-        console.log("Got here 3");
         const parsedResult = parsePreviousJournalEntries(res.data);
-        console.log("Got here");
         console.log(parsedResult);
         setPrevJournalEntriesArr(parsedResult);
       })
