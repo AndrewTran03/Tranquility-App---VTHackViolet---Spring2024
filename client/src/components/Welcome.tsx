@@ -15,7 +15,7 @@ const Welcome: React.FC = () => {
 
   return (
     <>
-      <p>Welcome To Tranquility,</p> {username}
+      <p>Welcome To Tranquility, {username}</p>
       <button type="submit" onClick={handleEnterBreathing}>
         Go To Breathing
       </button>
