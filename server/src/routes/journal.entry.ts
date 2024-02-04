@@ -43,14 +43,17 @@ router.post("/api/journal_entry", async (req, res) => {
       log.warn("An entry with the same username already exists...attempting to update the array");
       existResult.journalEntries.push({ journalEntryTitle, journalEntryText });
       const updateExistingResult = await existResult.save();
+      log.info("Updated an existing entry for the specified journal entry successfully! Congratulations!");
+      return res.status(201).send(JSON.stringify(updateExistingResult));
     } else {
       const journalEntryToInsert = new JournalEntryUserModel({
         username: username,
         journalEntries: [{ journalEntryTitle: journalEntryTitle, journalEntryText: journalEntryText }]
       });
       const insertResult = await journalEntryToInsert.save();
+      log.info("Inserted the specified journal entry successfully! Congratulations!");
+      return res.status(201).send(JSON.stringify(insertResult));
     }
-    log.info("Inserted (or updated an existing entry for) the specified journal entry successfully! Congratulations!");
   } catch (err) {
     log.error("Could not insert the specified journal entry! Please try again!");
     const resErrBody: APIErrorResponse = {
@@ -61,14 +64,23 @@ router.post("/api/journal_entry", async (req, res) => {
   }
 });
 
-router.delete("/api/journal_entry/:_id", async (req, res) => {
-  const journalEntryToDeleteId = req.params._id;
+router.delete("/api/journal_entry/:group_id/:post_id", async (req, res) => {
+  const journalEntryGroupToDeleteId = req.params.group_id;
+  const journalEntryPostToDeleteId = req.params.post_id;
 
   try {
-    const deleteResult =
-      await JournalEntryUserModel.findByIdAndDelete<JournalWrittenEntriesGroup>(journalEntryToDeleteId);
+    const deleteResult = await JournalEntryUserModel.findByIdAndUpdate(
+      journalEntryGroupToDeleteId,
+      {
+        $pull: { journalEntries: { _id: journalEntryPostToDeleteId } }
+      },
+      { new: true }
+    );
+    if (!deleteResult) {
+      throw new Error("Delete unsucessful for this specified journal entry!");
+    }
     log.info("Deleted the specified journal entry successfully! Congratulations!");
-    return res.status(200).json(deleteResult);
+    return res.status(200).json(JSON.stringify(deleteResult));
   } catch (err) {
     log.error("Could not delete the specified journal entry! Please try again!");
     const resErrBody: APIErrorResponse = {
