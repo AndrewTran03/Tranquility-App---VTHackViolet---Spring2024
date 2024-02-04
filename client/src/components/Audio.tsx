@@ -15,6 +15,7 @@ import MeditativeRainPic from "/src/assets/images/meditativerain.jpg";
 import ReflectedLightPic from "/src/assets/images/reflectedlight.png";
 import WhiteNoisePic from "/src/assets/images/whitenoise.jpg";
 import "../styles/AudioStyles.css";
+import Typography from "@mui/material/Typography";
 
 const Audio: React.FC = () => {
   const [play, setPlay] = useState(true);
@@ -117,9 +118,21 @@ const Audio: React.FC = () => {
         <img ref={imageRef} src={currentPic.src} />
       </div>
       <div className={"title"}>
-        <p> {currentSong.title}</p>
+        <Typography style={{ margin: "15px auto", fontSize: "20px" }}>
+          <b>{currentSong.title}</b>
+        </Typography>
       </div>
-      <div className={"button"} style={{ position: "relative", top: "0px", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "10px" }}>
+      <div
+        className={"button"}
+        style={{
+          position: "relative",
+          top: "0px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: "10px"
+        }}
+      >
         <button onClick={previousSongHandler}>
           <HiBackward />
         </button>

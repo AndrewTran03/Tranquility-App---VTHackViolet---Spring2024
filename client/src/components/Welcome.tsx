@@ -5,8 +5,8 @@ import Audio from "./Audio";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Grid, Table, TableRow } from "@mui/material";
 
 const Welcome: React.FC = () => {
   const { username } = useContext(UsernameContext);
@@ -20,7 +20,9 @@ const Welcome: React.FC = () => {
     <>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", marginTop: "0px" }}>
         <Audio />
-        <p>Welcome To Tranquility, {username}</p>
+        <Typography style={{ margin: "15px auto", fontSize: "20px" }}>
+          <b>Welcome To Tranquility, {username}!</b>
+        </Typography>
         <Grid container spacing={2} style={{ alignItems: "center", justifyContent: "center", marginTop: "0px" }}>
           <Grid item xs={4} alignSelf="center" style={{ alignItems: "stretch" }}>
             <Card sx={{ maxWidth: 345 }}>

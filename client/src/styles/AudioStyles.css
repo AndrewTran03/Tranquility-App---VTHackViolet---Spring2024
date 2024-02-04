@@ -1,17 +1,14 @@
 .image {
   position: relative;
-  /* top: -150px; */
   justify-content: center;
 }
 
 .title {
   position: relative;
-  /* top: -147px; */
   justify-content: center;
 }
 
 .button {
   position: relative;
-  /* top: -100px; */
   justify-content: center;
 }
