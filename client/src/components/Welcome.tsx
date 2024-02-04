@@ -1,6 +1,7 @@
 import React, { FormEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UsernameContext from "../shared/UsernameContext";
+import Audio from "./Audio";
 
 const Welcome: React.FC = () => {
   const { username } = useContext(UsernameContext);
@@ -18,6 +19,7 @@ const Welcome: React.FC = () => {
       <button type="submit" onClick={handleEnterBreathing}>
         Go To Breathing
       </button>
+      <Audio />
     </>
   );
 };
