@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+import { TransitionProps } from "@mui/material/transitions";
 // Shared Typescript Types/Interfaces/Other Global-Variables Used Throughout the Project:
 
 // Reference: https://www.totaltypescript.com/concepts/the-prettify-helper
@@ -43,11 +45,16 @@ type JournalWrittenSingleEntryBase = {
 
 type JournalWrittenSingleEntry = MongoDBWithId<JournalWrittenSingleEntryBase>;
 
+type TransitionPropsType = TransitionProps & {
+  children: ReactElement<any, any>;
+};
+
 export {
   backendUrlBase,
   APIErrorResponse,
   JournalWrittenSingleEntry,
   JournalWrittenSingleEntryBase,
   JournalWrittenEntriesGroup,
-  JournalWrittenEntriesGroupBase
+  JournalWrittenEntriesGroupBase,
+  TransitionPropsType
 };

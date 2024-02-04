@@ -45,9 +45,10 @@ const Journal: React.FC = () => {
       if (!journeyEntryValidateResult.success) {
         alert(fromZodError(journeyEntryValidateResult.error).toString());
       } else {
+        console.log("Schema validated successfully!");
         await axios
           .post(`${backendUrlBase}/api/journal_entry/`, journalEntryObjToValidate)
-          .then((res) => console.log(res))
+          .then((res) => console.log(res.data))
           .catch((err: AxiosError) => {
             const errorConfig = err.response?.data as APIErrorResponse;
             const error = new APIRequestError("Failed to INSERT this journal entry", errorConfig);
