@@ -38,8 +38,8 @@ const Welcome: React.FC = () => {
                     Relaxing Breathing Exercises
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    One of the best way's to destress and relax not only your mind but both your body is through
+                     breathing exercises in the following card.
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -59,8 +59,8 @@ const Welcome: React.FC = () => {
                     Write a Journal Entry
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    Another way to organize your thoughts and bring you some of that much needed peace of mind is 
+                    through jotting down your ideas in the following card.
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -80,8 +80,8 @@ const Welcome: React.FC = () => {
                     Previous Journal Entries
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
+                    Looking back at your past is a great learning experience and can help calm you down when facing
+                    similar experiences, see your past in the following card.
                   </Typography>
                 </CardContent>
               </CardActionArea>

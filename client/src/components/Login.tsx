@@ -27,7 +27,7 @@ const Login: React.FC = () => {
         component="img"
         style={{ width: "70%", margin: "auto", border: "30px solid black" }}
         image={LoginImage}
-        alt="green iguana"
+        alt="boat in water"
       />
       <Typography style={{ margin: "15px auto", fontSize: "20px" }}>
         <b>Enter Username:</b>
