@@ -143,56 +143,34 @@ const PrevJournal: React.FC = () => {
                             <Delete onClick={() => handleDeleteIconClick(journalEntry)} />
                           </IconButton>
                         </TableCell>
+                        <Dialog
+                          open={showDeleteDialog}
+                          TransitionComponent={DashboardTransition}
+                          keepMounted
+                          onClose={handleCloseDialog}
+                          aria-describedby="dialog-slide-description"
+                        >
+                          <DialogTitle>Delete Journal Entry Confirmation</DialogTitle>
+                          <DialogContent id="owner-dialog-slide-description-content">
+                            Are you sure you want to delete this journal entry titled{" "}
+                            {`"${deletedJournalEntry?.journalEntryTitle}`}?
+                          </DialogContent>
+                          <DialogActions>
+                            <Button variant="outlined" onClick={() => handleCloseDialog()}>
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="contained"
+                              color="error"
+                              onClick={() => handleDeleteJournalEntry(prevJournalEntryGroup._id)}
+                            >
+                              Delete
+                            </Button>
+                          </DialogActions>
+                        </Dialog>
                       </TableRow>
                     ))}
                 </React.Fragment>
-                // <TableRow key={prevJournalEntryGroup._id}>
-                //   <TableCell colSpan={1}>
-                //     <Typography>{prevJournalEntryGroup.username}</Typography>
-                //   </TableCell>
-                //   {prevJournalEntryGroup.journalEntries &&
-                //     prevJournalEntryGroup.journalEntries.map((journalEntry, idx) => (
-                //       <TableRow key={journalEntry._id}>
-                //         <TableCell colSpan={1}>
-                //           <Typography>{idx + 1}</Typography>
-                //         </TableCell>
-                //         <TableCell colSpan={1}>
-                //           <Typography>{journalEntry.journalEntryTitle}</Typography>
-                //         </TableCell>
-                //         <TableCell colSpan={1}>
-                //           <IconButton color="secondary">
-                //             <Delete onClick={() => handleDeleteIconClick(journalEntry)} />
-                //           </IconButton>
-                //           {/* https://mui.com/material-ui/react-dialog/ */}
-                //           <Dialog
-                //             open={showDeleteDialog}
-                //             TransitionComponent={DashboardTransition}
-                //             keepMounted
-                //             onClose={handleCloseDialog}
-                //             aria-describedby="dialog-slide-description"
-                //           >
-                //             <DialogTitle>Delete Journal Entry Confirmation</DialogTitle>
-                //             <DialogContent id="owner-dialog-slide-description-content">
-                //               Are you sure you want to delete this journal entry titled{" "}
-                //               {`"${deletedJournalEntry?.journalEntryTitle}`}?
-                //             </DialogContent>
-                //             <DialogActions>
-                //               <Button variant="outlined" onClick={() => handleCloseDialog()}>
-                //                 Cancel
-                //               </Button>
-                //               <Button
-                //                 variant="contained"
-                //                 color="error"
-                //                 onClick={() => handleDeleteJournalEntry(prevJournalEntryGroup._id)}
-                //               >
-                //                 Delete
-                //               </Button>
-                //             </DialogActions>
-                //           </Dialog>
-                //         </TableCell>
-                //       </TableRow>
-                //     ))}
-                // </TableRow>
               ))}
           </TableBody>
         </Table>
