@@ -27,7 +27,12 @@ const Welcome: React.FC = () => {
           <Grid item xs={4} alignSelf="center" style={{ alignItems: "stretch" }}>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea onClick={() => handleNavigation("/breathing")}>
-                <CardMedia component="img" height="140" image="../src/assets/images/breathing.png" alt="green iguana" />
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image="../src/assets/images/breathing.png"
+                  alt="human breathing cartoon"
+                />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     Relaxing Breathing Exercises
@@ -47,7 +52,7 @@ const Welcome: React.FC = () => {
                   component="img"
                   height="140"
                   image="../src/assets/images/journal_entry_writing.jpeg"
-                  alt="green iguana"
+                  alt="person sitting and writing in notebook on the grass on a sunny day"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -68,7 +73,7 @@ const Welcome: React.FC = () => {
                   component="img"
                   height="140"
                   image="../src/assets/images/previous_journal_entry_record.jpeg"
-                  alt="green iguana"
+                  alt="old notebook"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">

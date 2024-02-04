@@ -115,7 +115,7 @@ const Audio: React.FC = () => {
     <>
       <audio ref={audioRef} src={currentSong.src} onEnded={songEndHandler}></audio>
       <div className={"image"}>
-        <img ref={imageRef} src={currentPic.src} />
+        <img ref={imageRef} src={currentPic.src} alt={currentPic.title} />
       </div>
       <div className={"title"}>
         <Typography style={{ margin: "15px auto", fontSize: "20px" }}>
