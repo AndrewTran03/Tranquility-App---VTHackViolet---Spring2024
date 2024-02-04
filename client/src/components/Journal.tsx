@@ -1,9 +1,16 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { z } from "zod";
+import { fromZodError } from "zod-validation-error";
+import axios, { AxiosError } from "axios";
+import UsernameContext from "../shared/UsernameContext";
 import backgroundImage from "../assets/images/journalbg1.jpg";
 import "../styles/JournalStyles.css";
+import { APIErrorResponse, backendUrlBase } from "../shared/types";
+import { APIRequestError } from "../shared/APIRequestError";
 
 const Journal: React.FC = () => {
+  const { username } = useContext(UsernameContext);
   const [inputTitleText, setInputTitleText] = useState("");
   const [inputBodyText, setInputBodyText] = useState("");
   const [currentDate] = useState(new Date());
@@ -19,12 +26,35 @@ const Journal: React.FC = () => {
     setInputBodyText(e.target.value);
   }
 
-  function handleNavigateToWelcome() {
+  async function handleNavigateToWelcome() {
     if (inputTitleText.length === 0 || inputTitleText.length === 0) {
       alert("Please do not leave either the title or body text input field blank!");
     } else {
-      // Axios Post Call (Goes Here)
-      navigate(-1);
+      const journalEntrySchema = z.object({
+        username: z.string().min(1),
+        journalEntryTitle: z.string().min(1),
+        journalEntryText: z.string().min(1)
+      });
+      const journalEntryObjToValidate = {
+        username: username,
+        journalEntryTitle: inputTitleText,
+        journalEntryText: inputBodyText
+      };
+      const journeyEntryValidateResult = journalEntrySchema.safeParse(journalEntryObjToValidate);
+
+      if (!journeyEntryValidateResult.success) {
+        alert(fromZodError(journeyEntryValidateResult.error).toString());
+      } else {
+        await axios
+          .post(`${backendUrlBase}/api/journal_entry/`, journalEntryObjToValidate)
+          .then((res) => console.log(res))
+          .catch((err: AxiosError) => {
+            const errorConfig = err.response?.data as APIErrorResponse;
+            const error = new APIRequestError("Failed to INSERT this journal entry", errorConfig);
+            console.error(error.toString());
+          });
+        navigate(-1);
+      }
     }
   }
 

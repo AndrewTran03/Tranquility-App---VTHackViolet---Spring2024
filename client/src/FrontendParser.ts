@@ -10,6 +10,7 @@ function parsePreviousJournalEntries(entryDataArr: any[]) {
     const updatedDate = journalGroupEntry.updated_date;
     const username = journalGroupEntry.username;
     const journalEntries = journalGroupEntry.journalEntries as JournalWrittenSingleEntry[];
+    const newJournalEntries: JournalWrittenSingleEntry[] = [];
     journalEntries.forEach((journalEntry: JournalWrittenSingleEntry) => {
       const _id = journalEntry._id;
       const journalEntryTitle = journalEntry.journalEntryTitle;
@@ -20,7 +21,7 @@ function parsePreviousJournalEntries(entryDataArr: any[]) {
         journalEntryTitle: journalEntryTitle,
         journalEntryText: journalEntryText
       };
-      journalEntries.push(newJournalEntry);
+      newJournalEntries.push(newJournalEntry);
     });
 
     const newJournalEntryGroupEntry: JournalWrittenEntriesGroup = {
@@ -29,7 +30,7 @@ function parsePreviousJournalEntries(entryDataArr: any[]) {
       createdDate: createdDate,
       updatedDate: updatedDate,
       username: username,
-      journalEntries: journalEntries
+      journalEntries: newJournalEntries
     };
     journalGroupEntries.push(newJournalEntryGroupEntry);
   });
