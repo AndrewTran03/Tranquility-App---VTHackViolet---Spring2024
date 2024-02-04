@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import UsernameContext from "../shared/UsernameContext";
 import WhaleImage from "../assets/images/whale.jpg";
 import CardMedia from "@mui/material/CardMedia";
+import Audio2 from "./Audio2.tsx";
 
 const Breathing: React.FC = () => {
   const { username } = useContext(UsernameContext);
@@ -30,6 +31,7 @@ const Breathing: React.FC = () => {
 
   return (
     <>
+      <Audio2 />
       <CardMedia
         component="img"
         style={{ width: "50%", margin: "auto", border: "30px solid black", marginLeft: "50px" }}
