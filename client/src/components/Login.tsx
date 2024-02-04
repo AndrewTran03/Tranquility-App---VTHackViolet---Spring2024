@@ -1,20 +1,17 @@
-import { useEffect, useRef, FormEvent, useContext } from "react";
+import { useRef, FormEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UsernameContext from "../shared/UsernameContext";
+import LoginImage from "../assets/images/login.jpg";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 
 const Login: React.FC = () => {
-  const { username, setUsername } = useContext(UsernameContext);
-  const usernameRef = useRef<HTMLInputElement | null>(null);
+  const { setUsername } = useContext(UsernameContext);
+  const usernameRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Think is how to use the useEffect() React hook
-    console.log(username);
-  }, [username]); // Dependency array
 
   function handleEnter(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    console.log("Button pressed");
     setUsername(usernameRef.current!.value);
     console.log(usernameRef.current!.value);
     if (usernameRef.current!.value.length === 0) {
@@ -26,9 +23,17 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <p>Enter Username:</p>
-      <input ref={usernameRef} type="text" />
-      <button type="submit" onClick={handleEnter}>
+      <CardMedia
+        component="img"
+        style={{ width: "70%", margin: "auto", border: "30px solid black" }}
+        image={LoginImage}
+        alt="green iguana"
+      />
+      <Typography style={{ margin: "15px auto", fontSize: "20px" }}>
+        <b>Enter Username:</b>
+      </Typography>
+      <input ref={usernameRef} type="text" style={{ fontSize: "20px" }} />
+      <button type="submit" onClick={handleEnter} style={{ fontSize: "20px" }}>
         Log In
       </button>
     </>

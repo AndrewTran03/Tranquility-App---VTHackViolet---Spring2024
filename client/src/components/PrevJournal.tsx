@@ -1,16 +1,13 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import axios from "axios";
 import { JournalWrittenEntriesGroup, backendUrlBase } from "../shared/types";
 import { parsePreviousJournalEntries } from "../FrontendParser";
+import UsernameContext from "../shared/UsernameContext";
 
-type Props = {
-  username?: string;
-};
-
-const PrevJournal: React.FC<Props> = (props) => {
-  const [username, setUsername] = useState(props.username || "");
+const PrevJournal: React.FC = () => {
+  const { username } = useContext(UsernameContext);
   const [prevJournalEntriesArr, setPrevJournalEntriesArr] = useState<JournalWrittenEntriesGroup[]>([]);
 
   async function fetchPreviousJournalEntries() {
@@ -26,10 +23,6 @@ const PrevJournal: React.FC<Props> = (props) => {
     }
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log(prevJournalEntriesArr);
-  }, [prevJournalEntriesArr]);
 
   async function handleAPIButtonClick(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
