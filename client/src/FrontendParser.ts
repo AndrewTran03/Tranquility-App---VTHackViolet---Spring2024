@@ -10,7 +10,7 @@ function parsePreviousJournalEntries(entryDataArr: any[]) {
     const updatedDate = journalGroupEntry.updated_date;
     const username = journalGroupEntry.username;
     const journalEntries = journalGroupEntry.journalEntries as JournalWrittenSingleEntry[];
-    journalGroupEntry.journalEntries.forEach((journalEntry: JournalWrittenSingleEntry) => {
+    journalEntries.forEach((journalEntry: JournalWrittenSingleEntry) => {
       const _id = journalEntry._id;
       const journalEntryTitle = journalEntry.journalEntryTitle;
       const journalEntryText = journalEntry.journalEntryText;
