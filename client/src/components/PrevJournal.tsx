@@ -24,10 +24,6 @@ const PrevJournal: React.FC = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(prevJournalEntriesArr);
-  }, [prevJournalEntriesArr]);
-
   async function handleAPIButtonClick(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     console.log("Pressed API Button!");

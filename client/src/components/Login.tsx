@@ -8,12 +8,10 @@ import Typography from "@mui/material/Typography";
 const Login: React.FC = () => {
   const { setUsername } = useContext(UsernameContext);
   const usernameRef = useRef<HTMLInputElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
   const navigate = useNavigate();
 
   function handleEnter(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    console.log("Button pressed");
     setUsername(usernameRef.current!.value);
     console.log(usernameRef.current!.value);
     if (usernameRef.current!.value.length === 0) {
