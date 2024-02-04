@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
+import { useEffect, useRef, FormEvent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import UsernameContext from "../shared/UsernameContext";
 
-type Props = {
-  username: string;
-};
-const Login: React.FC<Props> = (props) => {
-  const [username, setUsername] = useState(props.username);
+
+const Login: React.FC = () => {
+  const { username, setUsername } = useContext(UsernameContext);
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
 
@@ -22,7 +21,7 @@ const Login: React.FC<Props> = (props) => {
     if (usernameRef.current!.value.length === 0) {
       alert("Please enter a valid username!");
     } else {
-      navigate("/welcome", { state: { username: usernameRef.current!.value || username } });
+      navigate("/welcome");
     }
   }
 

@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { FormEvent, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import UsernameContext from "../shared/UsernameContext";
 
-type Props = {
-  username?: string;
-};
+const Welcome: React.FC = () => {
+  const { username } = useContext(UsernameContext);
+  const navigate = useNavigate();
 
-const Welcome: React.FC<Props> = (props) => {
-  const [username, setUsername] = useState(props.username || "");
-  const location = useLocation();
+  function handleEnterBreathing(e: FormEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    console.log("Button pressed");
+    navigate("/breathing", { state: {username: username }} );
+  }
 
-  // Link Props: useState() Change and Management
-  useEffect(() => {
-    console.log(location.state.username);
-    if (location.state && !Object.values(location.state).includes(undefined)) {
-      const newUsername = location.state.username;
-      setUsername(newUsername);
-    }
-  }, [location.state]);
-
-  useEffect(() => {
-    console.log(`New username: ${username}`);
-  }, [username]);
-
-  return <>Hello {username}</>;
+  return (
+      <> 
+          <p>Welcome To Tranquility,</p> {username}
+          <button type="submit" onClick={handleEnterBreathing}>
+              Go To Breathing
+          </button>
+  
+      </>
+  );
 };
 
 export default Welcome;
