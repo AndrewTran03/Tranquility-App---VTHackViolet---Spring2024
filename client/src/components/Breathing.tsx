@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import UsernameContext from "../shared/UsernameContext";
+import WhaleImage from "../assets/images/whale.jpg";
+import CardMedia from "@mui/material/CardMedia";
 
 const Breathing: React.FC = () => {
   const { username } = useContext(UsernameContext);
@@ -27,22 +29,27 @@ const Breathing: React.FC = () => {
   }, [timer, loopCount]);
 
   return (
-    <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px" }}>
-      <p>Breathe to soothe yourself, {username}</p>
-      <div>
+  <>
+    <CardMedia
+      component="img"
+      style={{ width: "50%", margin: "auto", border: "30px solid black", marginLeft: "50px" }}
+      image={WhaleImage}
+      alt="whale tranquility image"
+    />
+    <div style={{ position: "fixed", top: "50%", right: "140px", transform: "translateY(-50%)" }}>
+      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px", marginBottom: "10px" }}>
+        <p>Breathe to soothe yourself, {username}!</p>
+      </div>
+      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px", marginBottom: "10px" }}>
         <p>Time remaining: {timer} seconds</p>
+      </div>
+      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "5px", width: "200px" }}>
         <p>{breathMessage}</p>
       </div>
     </div>
+  </>
+    
   );
 };
 
 export default Breathing;
-//need to add here some counter for how long to breath/exhale/hold
-//i was thinking to create a count down timer
-//counts down from 10 to inhale air
-//counts down frm 10 to hold your breath
-//counts down from 10 to exhaule your breath
-
-//repeat this 30 second cycle 6 times to do a total of 3 mins of breath exercising
-//have button th    at says "end and return" to just stop anytime you want
