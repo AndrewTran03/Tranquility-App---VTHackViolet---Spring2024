@@ -2,7 +2,6 @@ import express from "express";
 import { APIErrorResponse, JournalWrittenEntriesGroup } from "../../assets/types";
 import { JournalEntryUserModel, journalEntriesCollectionName } from "../models/journal.entry.model";
 import log from "../utils/logger";
-import { P } from "pino";
 
 const router = express.Router();
 
