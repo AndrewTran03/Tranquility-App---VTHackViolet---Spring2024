@@ -9,11 +9,16 @@ import ReflectedLight from "/src/assets/audio/reflectedlight.mp3";
 import WhiteNoise from "/src/assets/audio/whitenoise.mp3";
 import "../styles/AudioStyles.css";
 
+type Song = {
+  title: string;
+  src: string;
+};
+
 const Audio: React.FC = () => {
   const [play, setPlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const songs = [
+  const songs: Song[] = [
     {
       title: "A Gentle Breeze",
       src: GentleBreeze
